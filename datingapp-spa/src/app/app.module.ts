@@ -1,3 +1,4 @@
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { UserService } from './_services/user.service';
 import { AuthGuard } from './_gaurds/auth.guard';
@@ -30,6 +31,7 @@ import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_gaurds/prevent-unsaved-changes.guard';
+import { FileUploadModule } from 'ng2-file-upload';
 
 
 export function tokenGetter(){
@@ -54,7 +56,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       MemberListComponent,
       MemberCardComponent,
       MemberDetailComponent,
-      MemberEditComponent
+      MemberEditComponent,
+      PhotoEditorComponent
    ],
    imports: [
       BrowserModule,
@@ -64,6 +67,7 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       BsDropdownModule.forRoot(),
       TabsModule.forRoot(),
       NgxGalleryModule,
+      FileUploadModule,
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
         config: {
