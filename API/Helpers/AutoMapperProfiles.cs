@@ -21,6 +21,7 @@ namespace API.Helpers
             CreateMap<UserForUpdateDto, User>();
             CreateMap<Photo, PhotoFromReturnDto>();
             CreateMap<PhotoForCreationDto, Photo>();
+            CreateMap<UserForRegisterDto, User>();
         }
     }
 }
