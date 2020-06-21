@@ -17,6 +17,8 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeagoModule } from 'ngx-timeago';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
@@ -73,6 +75,8 @@ export class CustomHammerConfig extends HammerGestureConfig  {
       NgxGalleryModule,
       FileUploadModule,
       TimeagoModule.forRoot(),
+      PaginationModule.forRoot(),
+      ButtonsModule.forRoot(),
       RouterModule.forRoot(appRoutes),
       JwtModule.forRoot({
         config: {
