@@ -39,11 +39,11 @@ getUsers(page?, itemsPerPage?, userParams?, likesParam?): Observable<PaginatedRe
     params = params.append('orderBy', userParams.orderBy);
   }
 
-  if (likesParam === 'likers') {
+  if (likesParam === 'Likers') {
     params = params.append('likers', 'true');
   }
 
-  if (likesParam === 'likees') {
+  if (likesParam === 'Likees') {
     params = params.append('likees', 'true');
   }
 
@@ -68,7 +68,7 @@ updateUser(id: number, user: User){
 }
 
 setMainPhoto(userId: number, id: number){
-  return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + 'setMain', {});
+  return this.http.post(this.baseUrl + 'users/' + userId + '/photos/' + id + '/isMain', {});
 }
 
 deletePhoto(userId: number, id: number){
@@ -76,7 +76,7 @@ deletePhoto(userId: number, id: number){
 }
 
 sendLike(id: number, recipientId: number){
-  return this.http.post(this.baseUrl + 'users/' + id + '/likes/'  + recipientId, {});
+  return this.http.post(this.baseUrl + 'users/' + id + '/like/'  + recipientId, {});
 }
 
 getMessages(id: number, page?, itemsPerPage?, messageContainer?){

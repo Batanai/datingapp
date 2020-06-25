@@ -53,7 +53,8 @@ namespace API
                         ValidateIssuerSigningKey = true,
                         IssuerSigningKey = new SymmetricSecurityKey
                             (Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value)),
-                        ValidateIssuer = false
+                        ValidateIssuer = false,
+                        ValidateAudience = false
                     };
                 });
             services.AddScoped<LogUserActivity>();
@@ -93,6 +94,7 @@ namespace API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                //endpoints.MapFallbackToController("Index", "Fallback");
             });
         }
     }

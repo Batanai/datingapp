@@ -26,6 +26,7 @@ namespace API.Controllers
             _repo = repo;
         }
 
+        
         [HttpGet("{id}", Name = "GetMessage")]
         public async Task<IActionResult> GetMessage(int userId, int id)
         {
@@ -40,6 +41,7 @@ namespace API.Controllers
             return Ok(messageFromRepo);
         }   
 
+        
         [HttpGet]
         public async Task<IActionResult> GetMessagesForUser(int userId,
             [FromQuery]MessageParams messageParams)
@@ -60,6 +62,7 @@ namespace API.Controllers
 
         }
 
+       
         [HttpGet("thread/{recipientId}")]
         public async Task<IActionResult> GetMessageThread(int userId, int recipientId)
         {
@@ -73,6 +76,7 @@ namespace API.Controllers
             return Ok(messageThread); 
         }
 
+        
         [HttpPost]
         public async Task<IActionResult> CreateMessage(int userId, MessageForCreationDto messageForCreationDto)
         {
@@ -95,13 +99,14 @@ namespace API.Controllers
             if(await _repo.SaveAll())
             {
                 var messageToReturn = _mapper.Map<MessageToReturnDto>(message);
-                return CreatedAtRoute("GetMessge", new {userId, id = message.Id}, messageToReturn);
+                return CreatedAtRoute("GetMessage", new {userId, id = message.Id}, messageToReturn);
             }
 
             throw new Exception("Creating the message failed on save");
                 
         }
 
+        
         [HttpPost("{id}")]
         public async Task<IActionResult> DeleteMessage(int id, int userId)
         {
@@ -126,6 +131,7 @@ namespace API.Controllers
 
         }
 
+        
         [HttpPost("{id}/read")]
         public async Task<IActionResult> MarkMessageAsRead(int userId, int id)
         {

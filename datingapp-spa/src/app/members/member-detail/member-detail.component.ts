@@ -3,7 +3,7 @@ import { UserService } from './../../_services/user.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { User } from 'src/app/_models/User';
 import { ActivatedRoute } from '@angular/router';
-import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery-9';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 @Component({
@@ -12,7 +12,7 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
   styleUrls: ['./member-detail.component.css']
 })
 export class MemberDetailComponent implements OnInit {
-  @ViewChild('memberTabs') memberTabs: TabsetComponent;
+  @ViewChild('memberTabs', {static: true}) memberTabs: TabsetComponent;
   user: User;
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
@@ -38,7 +38,7 @@ export class MemberDetailComponent implements OnInit {
         preview: false
       }
     ];
-    this.galleryImages = [];
+    this.galleryImages =  this.getImages();
   }
 
   getImages(){

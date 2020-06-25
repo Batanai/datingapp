@@ -40,7 +40,7 @@ namespace API.Controllers
             _cloudinary = new Cloudinary(acc);
         }
 
-        [AllowAnonymous]
+        
         [HttpGet("{id}", Name = "GetPhoto")]
          public async Task<IActionResult> GetPhoto(int id)
          {
@@ -51,7 +51,7 @@ namespace API.Controllers
             return Ok(photo);        
          }
 
-        [AllowAnonymous]
+        
         [HttpPost]
         public async Task<IActionResult> AddPhotoForUser(int userId,
             [FromForm]PhotoForCreationDto photoForCreationDto)
@@ -100,7 +100,7 @@ namespace API.Controllers
             return BadRequest("Could not add photo");
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("{id}/isMain")]
         public async Task<IActionResult> SetMainPhoto(int userId, int id)
         {
@@ -128,7 +128,7 @@ namespace API.Controllers
             return BadRequest("Could not set photo to main");
         }
 
-        [AllowAnonymous]
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePhoto(int userId, int id)
         {

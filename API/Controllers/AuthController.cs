@@ -14,7 +14,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -29,7 +29,7 @@ namespace API.Controllers
             _repo = repo;
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("register")]
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
@@ -52,7 +52,7 @@ namespace API.Controllers
             return CreatedAtRoute("GetUser", new {controller = "Users", id = createdUser.Id}, userToReturn);
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {

@@ -26,7 +26,7 @@ namespace API.Controllers
             _repo = repo;
         }
 
-        [AllowAnonymous]
+        
         [HttpGet]
         public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {
@@ -51,7 +51,7 @@ namespace API.Controllers
             return Ok(usersToReturn);
         }
 
-        [AllowAnonymous]
+        
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(int id)
         {
@@ -62,9 +62,9 @@ namespace API.Controllers
             return Ok(userToReturn);
         }
 
-        [AllowAnonymous]
+        
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(int id, [FromBody]UserForUpdateDto userForUpdateDto)
+        public async Task<IActionResult> UpdateUser(int id, UserForUpdateDto userForUpdateDto)
         {
             if(id != int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value))
                 return Unauthorized();
@@ -79,7 +79,7 @@ namespace API.Controllers
             throw new Exception($"Updating user {id} failed on save"); 
         }
 
-        [AllowAnonymous]
+        
         [HttpPost("{id}/like/{recipientId}")]
         public async Task<IActionResult> LikeUser(int id, int recipientId)
         {

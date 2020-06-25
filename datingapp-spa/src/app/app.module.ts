@@ -7,14 +7,14 @@ import { AlertifyService } from './_services/alertify.service';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './_services/auth.service';
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JwtModule } from '@auth0/angular-jwt';
-import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeagoModule } from 'ngx-timeago';
@@ -45,6 +45,7 @@ export function tokenGetter(){
   return localStorage.getItem('token');
 }
 
+@Injectable()
 export class CustomHammerConfig extends HammerGestureConfig  {
   overrides = {
       pinch: { enable: false },
