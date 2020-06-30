@@ -21,7 +21,6 @@ namespace API.Controllers
         }
 
         // GET api/values
-        [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetValues()
         {
@@ -31,7 +30,6 @@ namespace API.Controllers
         }
 
         // GET api/values/5
-        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetValue(int id)
         {
