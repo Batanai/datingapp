@@ -164,7 +164,7 @@ namespace API.Controllers
             if(await _repo.SaveAll())
                 return Ok();
 
-            return BadRequest("ailed to delete the photo");
+            return BadRequest("Failed to delete the photo");
         }
 
     }

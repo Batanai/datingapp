@@ -11,7 +11,7 @@ namespace API.Models
         public bool IsMain { get; set; }
         public string PublicID { get; set; }
         public bool IsApproved { get; set; }
-        public User User { get; set; }
+        public virtual User User { get; set; }
         public int UserId { get; set; }
     }
 }
